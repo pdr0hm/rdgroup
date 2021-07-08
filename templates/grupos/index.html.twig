@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RD Groups{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+   .btn{
+  font-size: 35px; 
+  text-decoration: none;
+  background: #87befd;
+  color: #FFF;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 50%;   
+  float: right;  
+  transition: .4s;
+  border: none;
+  text-align: center; 
+  line-height: 45px;
+  
+  
+
+  
+}
+
+.btn:hover{
+    background: #668ad8;
+}
+
+</style>
+
+<div class="example-wrapper">
+
+    <h1> Recursos Didáticos <h1>
+
+    
+        
+    <a href="{{ path('novogrupo_index')}}" class="btn" >+</a>
+                    
+    
+
+    {% for grupo in grupos %}
+        <li>{{ grupo.nomeGrupo }}</li>         
+        <form action="{{path('inscricao', {'idGrupo':grupo.id})}}" method="post"> 
+            <button>Inscrever-se</button>
+        </form>
+        <form action="{{path('membros_index', {'idGrupo':grupo.id})}}" method="get">
+            <button>Membros</button>
+        </form>             
+    {% endfor %}
+   
+
+ 
+
+   
+
+       
+
+    
+    
+</div>
+{% endblock %}

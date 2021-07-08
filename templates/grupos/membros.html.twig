@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Membros{% endblock %}
+
+{% block body %}
+
+
+    
+    <h2> Grupo dos {{nomeGrupo}}</h2> 
+
+    <p>Abaixo está a lista de membros deste grupo</p>
+
+    <p> 
+     {% for membro in membros %}
+        <li>{{ membro.email }}</li>
+    {% endfor %}
+
+    </p>
+
+    
+    
+    <button>
+        <a href="{{ url('home')}}">Cancelar</a> 
+    </button>
+    <form action="{{path('inscricao')}}" method="post"> 
+        <button>Inscrever-se</button>
+    </form>
+
+    
+    
+{% endblock %}
