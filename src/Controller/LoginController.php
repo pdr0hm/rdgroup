@@ -2,61 +2,37 @@
 
 namespace App\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
-use App\Entity\Usuario;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController 
-{
-    public function __construct(RequestStack $requestStack)
-    {
-        $this->requestStack = $requestStack;
+{  
+  /** 
+   * @Route("/", name="app_login")
+  */    
+  public function login(AuthenticationUtils $authenticationUtils): Response
+  {
+    if ($this->getUser()) {
+      return $this->redirectToRoute('home');
     }
 
-    /** 
-     * @Route("/", name="indexLogin", methods={"GET"})
-    */
-    public function indexLogin(Request $request)  
-    {                         
-        return $this->render('grupos/login.html.twig');     
-    }
+    // get the login error if there is one
+    $error = $authenticationUtils->getLastAuthenticationError();
+    // last username entered by the user
+    $lastUsername = $authenticationUtils->getLastUsername();
 
-    /** 
-     * @Route ("/login", name="loginUsuario", methods={"POST"})
-    */
-    public function loginUsuario(Request $request)
-    {
-        
-        $idUsuario = $request->request->get('idUsuario');
+    return $this->render('security/login.html.twig', [
+      'last_username' => $lastUsername, 
+      'error' => $error
+    ]);
+  }
 
-        $usuario = $this->getDoctrine()->getRepository(Usuario::class)->find($idUsuario);
-
-        if (!$usuario) 
-            return $this->redirectToRoute('indexLogin');
-
-        
-        $session = $this->requestStack->getSession();
-        $session->set('id-usuario', $idUsuario); 
-                
-        return $this->redirectToRoute('home');
-            
-    }
-
-
-    /** 
-     * @Route ("/logout", name="logoutUsuario", methods={"GET"})
-    */
-    public function logoutUsuario(Request $request)
-    {        
-        $session = $this->requestStack->getSession();     
-        $session->set('id-usuario', null);  
-        
-        return $this->redirectToRoute('indexLogin');
-    }
-
+  /**
+   * @Route("/logout", name="app_logout")
+   */
+  public function logout()
+  {
+  }
 }

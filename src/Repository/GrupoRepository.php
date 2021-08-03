@@ -47,4 +47,15 @@ class GrupoRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByName($nomeGrupo)
+    {
+       return $this->createQueryBuilder('g')
+            ->andWhere('UPPER(g.nomeGrupo) like UPPER(:nomeGrupo)')
+            ->setParameter('nomeGrupo', "%$nomeGrupo%")
+            ->orderBy('g.id', 'ASC')
+            ->getQuery()  
+            ->getResult();               
+                    
+    }
 }

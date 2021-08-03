@@ -2,14 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\UsuarioRepository;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=UsuarioRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\UsuarioRepository")
  */
-class Usuario
+class Usuario implements UserInterface
 {
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -23,21 +25,20 @@ class Usuario
     private $nome;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(unique=true, type="string", length=255, nullable=false)
      */
-    
-   // private $login;
+    private $password;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="json")
      */
-   // private $senha;
-
+    private $roles = [];
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -67,31 +68,76 @@ class Usuario
         return $this;
     }
 
-   /*
-    public function getLogin(): ?string
+    public function getUserIdentifier():string
     {
-        return $this->login;   
-      }   
-    
-    public function setLogin($login): self
+        return $this->email;
+    }
+
+    public function getPassword(): string
     {
-        $this->login = $login;
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }
 
-    
-
-    public function getSenha(): ?string
+    /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
     {
-        return $this->senha;
+        return null;
     }
 
-    
-    public function setSenha($senha)
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        $this->senha = $senha;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+    
+     /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
-    }*/
+    }
+
+     /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
+    {
+        return (string) $this->username;
+    }
+
 }

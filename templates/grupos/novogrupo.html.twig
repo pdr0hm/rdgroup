@@ -74,13 +74,16 @@ input:checked + .slider:before {
 
     <p>Preencha os campos (*) Obrigatórios</p>
 
- {{form(form)}}
+  
+      {{ form_start(form) }}
+      
+        {{form_row(form.fotoCapa)}}
+      {{ form_end(form) }}
+
 
 
     
 
-    <button>
-    <a href="{{ url('home') }}">Cancelar</a> 
-    </button>
+    
     
 {% endblock %}

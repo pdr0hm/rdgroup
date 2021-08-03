@@ -7,7 +7,7 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 
-   .btn{
+   .btn1{
   font-size: 35px; 
   text-decoration: none;
   background: #87befd;
@@ -27,7 +27,7 @@
   
 }
 
-.btn:hover{
+.btn1:hover{
     background: #668ad8;
 }
 
@@ -39,9 +39,10 @@
 
     
         
-    <a href="{{ path('novogrupo_index')}}" class="btn" >+</a>
+    <a href="{{ path('criargrupo')}}" class="btn1" >+</a>
                     
-    
+    {{ form_start(form) }}
+    {{ form_end(form) }}
 
     {% for grupo in grupos %}
         <li>{{ grupo.nomeGrupo }}</li>         

@@ -6,12 +6,12 @@
 
 
     
-    <h2> Grupo dos {{nomeGrupo}}</h2> 
+    <h2> Grupo dos {{grupo.nomeGrupo}}</h2> 
 
     <p>Abaixo está a lista de membros deste grupo</p>
 
     <p> 
-     {% for membro in membros %}
+     {% for membro in grupo.membros %}
         <li>{{ membro.email }}</li>
     {% endfor %}
 
@@ -22,7 +22,7 @@
     <button>
         <a href="{{ url('home')}}">Cancelar</a> 
     </button>
-    <form action="{{path('inscricao')}}" method="post"> 
+    <form action="{{path('inscricao', {'idGrupo':grupo.id})}}" method="post"> 
         <button>Inscrever-se</button>
     </form>
 

@@ -82,6 +82,9 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "firebase/php-jwt": {
+        "version": "v5.4.0"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
@@ -215,6 +218,9 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/mime": {
+        "version": "v5.3.2"
+    },
     "symfony/options-resolver": {
         "version": "v5.3.0"
     },
@@ -228,6 +234,9 @@
         "version": "v1.23.0"
     },
     "symfony/polyfill-intl-icu": {
+        "version": "v1.23.0"
+    },
+    "symfony/polyfill-intl-idn": {
         "version": "v1.23.0"
     },
     "symfony/polyfill-intl-normalizer": {
@@ -270,10 +279,28 @@
     "symfony/runtime": {
         "version": "v5.3.3"
     },
+    "symfony/security-bundle": {
+        "version": "5.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "8b35bfc00a7716db4ca5a764a4b338476ca3a704"
+        },
+        "files": [
+            "config/packages/security.yaml"
+        ]
+    },
     "symfony/security-core": {
         "version": "v5.3.3"
     },
     "symfony/security-csrf": {
+        "version": "v5.3.3"
+    },
+    "symfony/security-guard": {
+        "version": "v5.3.0"
+    },
+    "symfony/security-http": {
         "version": "v5.3.3"
     },
     "symfony/service-contracts": {

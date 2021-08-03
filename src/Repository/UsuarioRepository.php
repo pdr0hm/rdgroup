@@ -6,6 +6,7 @@ use App\Entity\Usuario;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+
 /**
  * @method Usuario|null find($id, $lockMode = null, $lockVersion = null)
  * @method Usuario|null findOneBy(array $criteria, array $orderBy = null)
