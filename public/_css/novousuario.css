@@ -1,0 +1,29 @@
+body {
+  background-color: #3598dc;
+}
+
+.example-wrapper { 
+   
+  position: relative;
+  align-content: center;
+  width: 50%;
+  margin:25px auto;
+
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+
+  padding: 10px 40px;
+  font-size: 30px;
+
+}
+.example-wrapper code { 
+  
+  background: #F5F5F5; 
+  padding: 2px 6px; 
+
+}
+
+.form-signup {
+  font-size: 20px;
+}
