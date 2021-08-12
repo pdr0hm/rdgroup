@@ -10,15 +10,16 @@
 
 {% block body %}
 
+<main>
+  <div class="div-signup">
+      
+  <h3>Inscrever-se</h3>
 
-<div class="example-wrapper">
-    
-<h3>Inscrever-se</h3>
-
-    {{ form_start(form) }}  
-    <span class="form-signup">{{form_row(form.nome)}}</span>  
-    <span class="form-signup">{{form_row(form.email)}}</span> 
-    <span class="form-signup">{{form_row(form.password)}}</span>   
-    {{ form_end(form) }}
-</div>
+      {{ form_start(form) }}  
+      <span class="form-signup">{{form_row(form.nome)}}</span>  
+      <span class="form-signup">{{form_row(form.email)}}</span> 
+      <span class="form-signup">{{form_row(form.password)}}</span>   
+      {{ form_end(form) }}
+  </div>
+</main>
 {% endblock %}

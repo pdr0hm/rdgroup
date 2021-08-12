@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Usuario;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,14 +29,14 @@ class NewUserType extends AbstractType
           ],
           'label' => false
         ])
-        ->add('password', TextType::class, [
+        ->add('password', PasswordType::class, [
           'attr' => [
           'placeholder' => 'Senha',
           'class' => 'form-signup'
         ],
         'label' => false
         ])
-        ->add('save', SubmitType::class);
+        ->add('Salvar', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
