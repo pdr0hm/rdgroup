@@ -1,4 +1,6 @@
+
 main {
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,4 +128,8 @@ label {
   
   .alert {
       color: red;
+      font-size: 20px;
   }
+
+  
+

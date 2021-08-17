@@ -28,7 +28,7 @@ h3 {
   border-radius: 10px;
 
   padding: 10px 40px;
-  font-size: 30px;
+  
 
 }
 .div-signup code { 
@@ -39,15 +39,17 @@ h3 {
 }
 
 .form-signup {
-  font-size: 35px;
+  background-color: gainsboro;
+  font-size: 30px;
   margin-top: 20px;
+  border: none;
 }
 
 button {
   background-color: #106cc8;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin-top: 30px;
   border: none;
   cursor: pointer;
   width: 100%;

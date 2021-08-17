@@ -12,7 +12,10 @@ class SearchBarType extends AbstractType
     {
         $builder->add('Busca', TextType::class, [
             'required' => false
-        ])
+        ], ['attr' => [
+          'placeholder' => 'Busque aqui uma Rede Docente', 
+          'class' => 'form-signup'
+        ], 'label' => false ])
         ->add('search', SubmitType::class, [
             'attr' => [
                 'class' => 'btn'

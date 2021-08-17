@@ -26,12 +26,15 @@ class GruposController extends AbstractController
     public function indexGrupos(Request $request) : Response
     {   
         $form = $this->createFormBuilder(null)
-            ->add('Busca', TextType::class, [
-                'required' => false
-            ])
+            ->add('busca', TextType::class,[
+              'attr' => [
+              'placeholder' => 'Busque aqui uma Rede Docente', 
+              'class' => 'form-searchbar'
+            ], 
+            'label' => false , 'required' => false])
             ->add('search', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn'                
+                    'class' => 'btn-search'                
                 ]                
             ])
             ->getForm(); 
@@ -42,7 +45,7 @@ class GruposController extends AbstractController
             $nomeGrupo = $form->getData();                      
             $grupos = $this->getDoctrine()
                 ->getRepository(Grupo::class)
-                ->findByName($nomeGrupo["Busca"]); 
+                ->findByName($nomeGrupo["busca"]); 
              
             return $this->render('grupos/index.html.twig', [
                 'grupos' => $grupos, 

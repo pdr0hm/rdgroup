@@ -1,0 +1,165 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.div-geral code {
+   background: #F5F5F5; 
+   padding: 2px 6px; 
+}
+
+.div-logo {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 80px 0;
+}
+
+.logo-rd {
+  width: 200px;
+}
+
+.div-search {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
+}
+
+.form-searchbar {  
+  font-size: 18px;
+  width: 600px;
+  height: 30px;
+  margin-right: 20px;
+  border: 2px solid rgb(196, 196, 196);
+}
+
+.span-search {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+
+
+.btn-novogrupo{
+
+  font-size: 30px; 
+  text-align: center; 
+  text-decoration: none; 
+  color: #FFF;
+  background: #106cc8;
+
+  border-radius: 50%;    
+  transition: .4s;
+  border: none;
+  
+  
+}
+
+.a-novogrupo {
+  text-decoration: none;
+  color: white;
+}
+
+.btn1:hover{
+    background: #668ad8;
+}
+
+.div-grupos{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: white;
+  
+}
+
+
+.div-grupo {
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #bdbdbd;
+  margin: 20px 10px;
+  min-width: 500px;
+  height: 300px;
+  
+}
+
+.div-img {
+  display: flex;
+  flex: 1;
+
+}
+
+.img-grupo {
+  width: 300px;
+  height: 100px;
+}
+
+.grupo-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #7f7f7f;
+  padding: 10px 0 0 10px;
+}
+
+.li-nomeGrupo {
+  font-size: 25px;
+  list-style-type: none;
+
+}
+
+.li-apresentacao {
+  font-size: 20px;
+  list-style-type: none;
+}
+
+.div-btn_grupo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+}
+
+
+.btn-membros {
+  
+  background-color: #3e6c9a;
+  color: white;
+  
+  font-size: 15px;
+  width: 120px;
+  height: 50px;
+
+  border: none;
+  cursor: pointer;
+  
+}
+
+
+
+.btn-inscricao {
+  border: none;
+  background-color: #106cc8;
+  color:white; 
+
+  width: 120px;
+  height: 50px;
+  margin-left: 5px; 
+  font-size: 15px;
+  cursor: pointer;
+
+}
+
