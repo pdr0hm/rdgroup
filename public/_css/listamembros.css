@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+.div-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  
+  height: 50px;
+  background-color: #106cc8;
+
+  font-size: 20px;
+}
+
+header > h2 {
+  margin-left: 20px;
+  color: #eef4fb;
+}
+
+.div-content{
+  margin-left: 30px;
+}
+
+
+.titulo-apresentacao {
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px
+
+}
+
+.div-membros {
+  height: 400px;
+  overflow: auto;
+}
+
+.div-membro {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid rgb(214, 213, 213);
+  border-bottom: 1px solid rgb(214, 213, 213);
+  padding: 20px 20px;
+
+}
+
+
+
+.logo-avatar {
+  width: 60px;
+  height: 60px;
+  
+ 
+}
+
+li {
+  margin-left: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+    
+}
+
+.div-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.btn-cancelar {
+  background-color: #e0e0e0;
+
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-inscricao {
+  color: white;
+  background-color: #106cc8;
+
+  
+  border: none;
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

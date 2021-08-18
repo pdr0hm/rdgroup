@@ -2,30 +2,54 @@
 
 {% block title %}Membros{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}  
+    <link href="{{ asset('_css/reset.css') }}" rel="stylesheet" />  
+    <link href="{{ asset('_css/listamembros.css') }}" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
 
+  <div class="div-header">
+    <header>
+      <h2>{{grupo.nomeGrupo}}</h2>
+    </header>
+  </div>
 
-    
-    <h2> Grupo dos {{grupo.nomeGrupo}}</h2> 
+
+  <div class="div-content">  
+    <h2 class="titulo-apresentacao"> Grupo dos {{grupo.apresentacao}}</h2> 
 
     <p>Abaixo está a lista de membros deste grupo</p>
 
-    <p> 
-     {% for membro in grupo.membros %}
-        <li>{{ membro.email }}</li>
-    {% endfor %}
+    <div class="div-membros">
+      {% for membro in grupo.membros %}
+        <div class="div-membro">          
+          
+          
+          <img src="/_images/avatar-membro.png" alt="Logo Avatar" class="logo-avatar">   
 
-    </p>
-
+          <div class="div-li">          
+            <li>{{ membro.nome }}</li>
+            <li>{{ membro.email }}</li>
+          </div>
+          
+        </div>
+        
+      {% endfor %}
+    </div>  
+  
     
-    
-    <button>
-        <a href="{{ url('home')}}">Cancelar</a> 
-    </button>
-    <form action="{{path('inscricao', {'idGrupo':grupo.id})}}" method="post"> 
-        <button>Inscrever-se</button>
-    </form>
+    <div class="div-btn">
+      <button class="btn-cancelar">
+          <a href="{{ url('home')}}">Cancelar</a> 
+      </button>
+      <form action="{{path('inscricao', {'idGrupo':grupo.id})}}" method="post"> 
+          <button class="btn-inscricao">Inscrever-se</button>
+      </form>
+    </div>
 
+  </div>
     
     
 {% endblock %}
