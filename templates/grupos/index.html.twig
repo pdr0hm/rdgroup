@@ -22,13 +22,16 @@
       <div class="div-search"> 
        
         {{ form_start(form) }}
-        <span class="span-bar">{{form_row(form.busca)}}</span>   
-        <span class="span-search">{{form_row(form.search)}}</span>      
-        {{ form_end(form) }} 
-
-         <div class="div-novogrupo">    
-          <button class="btn-novogrupo"><a href="{{ path('criargrupo')}}" class="a-novogrupo" >+</a></button>
-        </div> 
+          <div class="div-busca">
+            <div class="div-barra">
+              <span class="span-bar">{{form_row(form.busca)}}</span> 
+              <span class="span-search">{{form_row(form.search)}}</span>
+            </div>
+            <a href="{{ path('criargrupo')}}" class="btn-novogrupo">+</a>
+          </div> 
+          
+        {{ form_end(form) }}
+       
 
       </div>
 
