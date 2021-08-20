@@ -87,12 +87,13 @@ li {
   color: white;
   background-color: #106cc8;
 
-  
+
   border: none;
   width: 100px;
   height: 40px;
   text-decoration: none;
   border: none;
+  cursor: pointer;
 }
 
 a {
