@@ -19,29 +19,41 @@ class NewGroupType  extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nomeGrupo', TextType::class)
-        ->add('apresentacao', TextareaType::class)
+        ->add('nomeGrupo', TextType::class, [
+          'attr' => [
+            'class' => 'form-nomeGrupo'
+          ],
+          'label' => 'Nome *'
+        ])
+        ->add('apresentacao', TextareaType::class, [
+          'attr' => [
+            'class' => 'form-apresentacao'
+          ],
+          'label' => 'Apresentação *'
+        ])
         ->add('visibilidade', CheckboxType::class, [
-            'attr' => ['class' => 'slider round'], //atributo propriedade,
-            'required' => false 
+            'label' => 'visibilidade',
+            'attr' => [
+              'class' => 'form-visibilidade'
+            ],           
         ])
         ->add('fotoCapa', FileType::class, [
-            'label' =>  'Foto de Capa',
+            'label' =>  'Upload de Capa',
             'mapped' => false,
             'required' => false,  
             'constraints' => [
                 new File([
                     'maxSize' => '1024k',                    
                     'mimeTypesMessage' => 'Favor enviar arquivo PNG/JPEG válido',
-                ])
+                ]),                
             ],
+            'attr' => [
+              'class' => 'form-fotoCapa'
+            ]
         ])
         ->add('save', SubmitType::class);
     }
-
-
-
-    public function configureOptions(OptionsResolver $resolver): void
+        public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Grupo::class,

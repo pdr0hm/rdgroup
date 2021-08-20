@@ -38,10 +38,12 @@ class GruposController extends AbstractController
                 ]                
             ])
             ->getForm(); 
-        $form->handleRequest($request);                              
+        $form->handleRequest($request); 
+        
+        
                                                                
         if($form->isSubmitted() && $form->isValid()){
-            
+                                
             $nomeGrupo = $form->getData();                      
             $grupos = $this->getDoctrine()
                 ->getRepository(Grupo::class)
@@ -72,11 +74,14 @@ class GruposController extends AbstractController
     {       
         $grupo= new Grupo();        
 
-        $form = $this->createForm(NewGroupType::class, $grupo);                      
-        $form->handleRequest($request);       
+        $form = $this->createForm(NewGroupType::class, $grupo);   
+              
+        $form->handleRequest($request);            
+        
 
         if($form->isSubmitted() && $form->isValid()){
 
+                    
             /** @var UploadedFile $fotoCapa */
             $fotoCapa = $form->get('fotoCapa')->getData();
 
@@ -96,6 +101,7 @@ class GruposController extends AbstractController
               
                 $grupo->setFotoCapa($novoNomeFoto);
             }        
+            
             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($grupo);
