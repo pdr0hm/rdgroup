@@ -2,88 +2,43 @@
 
 {% block title %}Novo Grupo{% endblock %}
 
-{% block body %}
+{% block stylesheets %}
+    {{ parent() }}  
+    <link href="{{ asset('_css/novogrupo.css') }}" rel="stylesheet" />
+{% endblock %}
 
-<style> 
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 25px;
-}
+{% block body %}  
+ 
+  <header>
+    <h1>Novo Grupo</h2>
+  </header>
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+  <main>    
+      <h2> Crie seu grupo e convide novos membros para as discussões</h2> 
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+      <span>Preencha os campos (*) Obrigatórios</span>
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 15px;
-  width: 15px;
-  left: 4px;
-  bottom: 6px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 23px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-
-</style>    
-    <h2> Crie seu grupo e convide novos membros para as discussões</h2> 
-
-    <p>Preencha os campos (*) Obrigatórios</p>
-
-  
-      {{ form_start(form) }}
-      
-        {{form_row(form.fotoCapa)}}
-      {{ form_end(form) }}
-
-
-
-    
-
-    
+      <div class="div-form">
+        {{ form_start(form) }}          
+          <div class="div-nomeGrupo">  
+            {{form_row(form.nomeGrupo)}} 
+          </div>
+          <div class="div-apresentacao">
+            {{form_row(form.apresentacao)}}
+          </div>
+          <div class="div-visibilidade">   
+            {{form_row(form.visibilidade)}}
+          </div>
+          <div class="div-fotoCapa"> 
+            <div class="content-fotoCapa">
+                <img src="/_images/cloud-computing.png" alt="logo-upload">   
+                <span>Upload</span>        
+                {{ form_widget(form.fotoCapa, {'attr': {'class': 'fotoCapa'}}) }}
+            </div>
+          </div>     
+        {{ form_end(form) }}
+      </div>      
+  </main>
+        
     
 {% endblock %}
