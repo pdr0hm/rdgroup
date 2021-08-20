@@ -4,46 +4,41 @@
 
 {% block stylesheets %}
     {{ parent() }}  
-    <link href="{{ asset('_css/reset.css') }}" rel="stylesheet" />  
     <link href="{{ asset('_css/novogrupo.css') }}" rel="stylesheet" />
 {% endblock %}
 
-{% block body %}
-  
-  <div class="div-header">
-      <header>
-        <h2>Novo Grupo</h2>
-      </header>
-  </div>
+{% block body %}  
+ 
+  <header>
+    <h1>Novo Grupo</h2>
+  </header>
 
-  <main>
-    
-      <h2 class="titulo-novogrupo"> Crie seu grupo e convide novos membros para as discussões</h2> 
+  <main>    
+      <h2> Crie seu grupo e convide novos membros para as discussões</h2> 
 
-      <p>Preencha os campos (*) Obrigatórios</p>
+      <span>Preencha os campos (*) Obrigatórios</span>
 
-        
-          {{ form_start(form) }}
-          <div class="div-form">
-            <div class="div-nomeGrupo">  
-              {{form_row(form.nomeGrupo)}} 
+      <div class="div-form">
+        {{ form_start(form) }}          
+          <div class="div-nomeGrupo">  
+            {{form_row(form.nomeGrupo)}} 
+          </div>
+          <div class="div-apresentacao">
+            {{form_row(form.apresentacao)}}
+          </div>
+          <div class="div-visibilidade">   
+            {{form_row(form.visibilidade)}}
+          </div>
+          <div class="div-fotoCapa"> 
+            <div class="content-fotoCapa">
+                <img src="/_images/cloud-computing.png" alt="logo-upload">   
+                <span>Upload</span>        
+                {{ form_widget(form.fotoCapa, {'attr': {'class': 'fotoCapa'}}) }}
             </div>
-            <div class="div-apresentacao">
-              {{form_row(form.apresentacao)}}
-            </div>
-            <div class="div-visibilidade">   
-              {{form_row(form.visibilidade)}}
-            </div>
-            <div class="div-fotoCapa">
-              {{form_row(form.fotoCapa)}}
-            </div>  
-          </div>  
-          {{ form_end(form) }}
-        
-
+          </div>     
+        {{ form_end(form) }}
+      </div>      
   </main>
-    
-
-    
+        
     
 {% endblock %}

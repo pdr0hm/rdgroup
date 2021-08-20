@@ -32,7 +32,7 @@ class NewGroupType  extends AbstractType
           'label' => 'Apresentação *'
         ])
         ->add('visibilidade', CheckboxType::class, [
-            'label' => 'visibilidade',
+            'label' => 'Visibilidade',
             'attr' => [
               'class' => 'form-visibilidade'
             ],           
